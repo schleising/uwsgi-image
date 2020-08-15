@@ -10,4 +10,4 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 
 # Run a command to ensure the container does not exit
-CMD [ "uwsgi", "--socket", "schleising_net.sock", "--wsgi-file", "mainsite/wsgi.py" ]
+CMD [ "uwsgi", "--socket", "schleising_net.sock", "--wsgi-file", "mainsite/wsgi.py", "--chmod-socket=777" ]
