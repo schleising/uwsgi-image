@@ -9,17 +9,5 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 
-# Copy the start server script
-COPY start-server.py /code/
-
-# Add files
-#ADD run.sh /run.sh
-#ADD entrypoint.sh /entrypoint.sh
-
-#RUN chmod +x /run.sh /entrypoint.sh
-
-#ENTRYPOINT /entrypoint.sh
-
 # Run a command to ensure the container does not exit
-#CMD ["sleep", "infinity"]
-CMD [ "uwsgi", "--socket", ":8001", "--wsgi-file", "mainsite/wsgi.py" ]
+CMD [ "uwsgi", "--socket", "schleising_net.sock", "--wsgi-file", "mainsite/wsgi.py" ]
